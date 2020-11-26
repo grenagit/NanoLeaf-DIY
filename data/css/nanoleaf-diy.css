@@ -1,0 +1,30 @@
+.btn-circle {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin: 2px 0;
+}
+
+.triangle-top {
+	display: inline-block;
+	height: 0;
+	width: 0;
+	border-right: 29px solid transparent;
+	border-bottom: 50px solid black;
+	border-left: 29px solid transparent;
+}
+
+.triangle-bottom {
+	display: inline-block;
+	height: 0;
+	width: 0;
+	border-top: 50px solid black;
+	border-right: 29px solid transparent;
+	border-left: 29px solid transparent;
+}
+
+@media (max-width: 991px) {
+	#footer {
+		font-size: 0.7em;
+	}
+}

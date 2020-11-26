@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>NanoLeaf DIY - Serveur Web</title>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/jquery-minicolors.min.js"></script>
+		<script src="./js/bootstrap.bundle.min.js"></script>
+		<script src="./js/nanoleaf-diy.js"></script>
+		<link rel="stylesheet" href="./css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./css/jquery-minicolors.css" />
+		<link rel="stylesheet" href="./css/nanoleaf-diy.css" />
+		<link rel="icon"  type="image/png" href="./img/favicon.png" />
+	</head>
+	<body>
+		<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mb-2">
+			<a class="navbar-brand" href="#">
+				<img src="./img/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" />
+				NanoLeaf DIY
+			</a>
+		</nav>
+	
+		<div class="container">
+			<form>
+
+				<div class="form-group row">
+					<label for="btn-group-power" class="col-sm-2 col-form-label">État</label>
+					<div class="col-sm-10">
+						<div class="btn-group" id="btn-group-power" role="group">
+							<button type="button" class="btn btn-outline-primary" id="power-on">On</button>
+							<button type="button" class="btn btn-outline-primary" id="power-off">Off</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group row">
+					<label for="btn-group-quick-selection" class="col-sm-2 col-form-label">Sélection</label>
+					<input id="input-select" type="text" value="" hidden />
+					<div class="col-sm-10">
+						<div class="btn-group" id="btn-group-quick-selection" role="group">
+							<button type="button" class="btn btn-primary" id="select-all">Tous</button>
+							<button type="button" class="btn btn-outline-primary" id="select-none">Aucun</button>
+							<button type="button" class="btn btn-outline-primary" id="select-even">Paire</button>
+							<button type="button" class="btn btn-outline-primary" id="select-odd">Impaire</button>							
+						</div>
+					</div>
+					<div class="col-sm-10 offset-sm-2 mt-2">
+						<div class="btn-group" id="btn-group-custom-selection" role="group">		
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group row">
+				  <label for="input-brightness" class="col-sm-2 col-form-label">Luminosité</label>
+				  <div class="col-sm-2">
+				    <input class="form-control" id="input-brightness" type="number" step="1" min="0" max="255" />
+				  </div>
+				  <div class="col-sm-8">
+				    <input class="form-control-range" id="slide-brightness"  type="range" step="1" min="0" max="255" />
+				  </div>
+				</div>
+				
+				<div class="form-group row">
+					<label for="btn-group-color" class="col-sm-2 col-form-label">Couleur</label>
+					<div class="col-sm-10">
+						<button type="button" class="btn btn-circle" id="color-red" style="background-color:#FF0000;" title="Rouge">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-orange" style="background-color:#FF8000;" title="Orange">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-yellow" style="background-color:#FFFF00;" title="Jaune">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-chartreuse" style="background-color:#80FF00;" title="Chartreuse">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-green" style="background-color:#00FF00;" title="Vert">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-spring-green" style="background-color:#00FF80;" title="Spring Green">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-cyan" style="background-color:#00FFFF;" title="Cyan">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-azure" style="background-color:#0080FF;" title="Azure">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-blue" style="background-color:#0000FF;" title="Bleu">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-indigo" style="background-color:#8000FF;" title="Violet">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-magenta" style="background-color:#FF00FF;" title="Magenta">&nbsp;</button>
+						<button type="button" class="btn btn-circle" id="color-pink" style="background-color:#FF0080;" title="Rose">&nbsp;</button>
+						<button type="button" class="btn btn-circle border" id="color-white" style="background-color:#FFFFFF;" title="Blanc">&nbsp;</button>
+					</div>
+				</div>
+				
+				<div class="form-group row">
+		      <div class="col-sm-10 offset-sm-2">
+		        <input class="form-control" id="input-color" type="text" />
+		      </div>
+		    </div>
+		    
+		    <div class="form-group row">
+					<label for="group-preview" class="col-sm-2 col-form-label">Prévisualisation</label>
+					<div class="col-sm-10">
+						<svg id="svg-preview" xmlns="http://www.w3.org/2000/svg">
+						</svg>
+					</div>
+				</div>
+		    
+			</form>
+		</div>
+		
+		<nav class="navbar navbar-light bg-light justify-content-start mt-2" id="footer">
+			<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-gear-fill text-muted mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm9.5 5.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm-6.354-.354L4.793 6.5 3.146 4.854a.5.5 0 1 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708z"/></svg>
+		 	<span class="navbar-text mr-auto" id="status">Chargement en cours...</span>
+		 	<a href="#" data-toggle="modal" data-target="#aboutModal">
+				<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-info-circle-fill text-muted ml-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
+			</a>
+		</nav>
+		
+		<div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header">
+				    <h5 class="modal-title" id="aboutModalLabel">A propos</h5>
+				    <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+				      <span aria-hidden="true">&times;</span>
+				    </button>
+				  </div>
+				  <div class="modal-body">
+				    <p class="text-center font-italic"><strong>NanoLeaf DIY</strong> est une application de gestion de triangles lumineux pour ESP8266 développée par <a href="https://github.com/grenagit" target="_blank">Grena</a> en collaboration avec <a href="https://www.youtube.com/channel/UCkJ7AFKJVCajGVOGWAORAlA" target="_blank">Atel Yeah</a> inspirée du travail de <a href="https://github.com/NimmLor/esp8266-fastled-iot-webserver" target="_blank">NimmLor</a>.</p>
+				    				   
+				    <ul>
+				    	<li>Application réalisée avec <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> et <a href="https://jquery.com" target="_blank">Jquery</a>.</li>
+				    	<li>Logo réalisé par <a href="https://fr.freepik.com/vecteurs/infographie" target="_blank">macrovector</a>.</li>
+				    </ul>
+				    
+				    <p class="text-center"><a href="https://github.com/grenagit/NanoLeaf-DIY" target="_blank" class="btn btn-secondary btn-sm">Contribuez sur GitHub</a></p>
+				    
+				    <hr class="mx-2" />
+				    
+				    <div class="media">
+							 <a href="https://www.youtube.com/channel/UCkJ7AFKJVCajGVOGWAORAlA" target="_blank"><img src="./img/atelyeah.png" class="align-self-start mr-4" alt="Atel Yeah" width="100" /></a>
+							<div class="media-body">
+								<p><strong>Atel Yeah</strong> est une chaîne YouTube d'éco-conception et de fabrication DIY.</p>
+								<p>Le but est d'apprendre à fabriquer différents objets avec des outils basiques et des matériaux de récupération.</p>
+							</div>
+						</div>					
+				  </div>
+				  <div class="modal-footer">
+				    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
