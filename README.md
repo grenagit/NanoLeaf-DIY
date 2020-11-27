@@ -2,7 +2,7 @@
 
 Cette **application** a pour but de faciliter la **gestion** de **panneaux lumineux DIY** (type NanoLeaf) grâce à un microcontrôleur **ESP8266** depuis un appareil (ordinateur, tablette, smartphone) connecté à un **réseau local Wi-Fi**.
 
-| [![NanoLeaf DIY #1](./doc/thumbnail-video1.png)](https://www.youtube.com/watch?v=Diy4EA5iPeo) | [![NanoLeaf DIY #2](./doc/thumbnail-video2.png)](https://www.youtube.com/watch?v=Diy4EA5iPeo) |
+| [![NanoLeaf DIY #1](./doc/thumbnail-video1.png)](https://www.youtube.com/watch?v=Diy4EA5iPeo) | [![NanoLeaf DIY #2](./doc/thumbnail-video2.png)](https://www.youtube.com/watch?v=6wwLL0xVaM8) |
 | :---: | :---: |
 | *Tutoriel vidéo par [Atel Yeah](https://www.youtube.com/channel/UCkJ7AFKJVCajGVOGWAORAlA) : Épisode n°1* | *Tutoriel vidéo par [Atel Yeah](https://www.youtube.com/channel/UCkJ7AFKJVCajGVOGWAORAlA) : Épisode n°2* |
 
